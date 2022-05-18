@@ -1,0 +1,136 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: "Orders crud"
+  description: "Crud Operation for Orders"
+schemes:
+ - "http"
+consumes:
+  -"application/json"
+produces:
+  -"application/json"
+paths:
+  "/orders/getOrders":
+    get:
+      summary: Get all available orders from Database
+      tags:
+        - orders
+      responses:
+        '200':
+          description: A json Data.
+        '500':
+          description: Internal Server error
+  "/orders/create":
+    post:
+      summary: Create new order.
+      tags:
+        - orders
+      parameters:
+      - name: data
+        in: body
+        description: Enter Values
+        schema:
+          "$ref": "#components/schemas/create"
+      responses:
+        '200':    
+          description: Data updated successfully
+        '500':    
+          description: Internal Server error
+  "/orders/update/{id}":
+    post:
+      summary: Update order for given orderId.
+      tags:
+        - orders
+      parameters:
+      - name: id
+        in: path
+        description: Enter order Id
+        required: true
+        type: integer
+        example: 123
+      - name: data
+        in: body
+        description: Enter delivery_date for update
+        schema:
+          "$ref": "#components/schemas/update"
+      responses:
+        '200':
+          description: Data Updated Successfully
+        '500':
+          description: Internal Server error
+  "/orders/list/{date}":
+    get:
+      summary: Returns orders with given date.
+      tags:
+        - orders
+      parameters:
+      - name: date
+        in : path
+        description: Enter order_date
+      responses:
+        '200':
+          description: Data Updated Successfully
+        '500':
+          description: Internal Server error
+  "/orders/search/{id}":
+    get:
+      summary: get order details for paticular Id.
+      tags:
+        - orders
+      parameters:
+      - name: id
+        in: path
+        description: Enter order Id
+        required: true
+        type: integer
+        example: 123
+      responses:
+        '200':    
+          description: Data Updated Successfully
+        '500':    
+          description: Internal Server error
+  "/orders/delete":
+    delete:
+      summary: delete order with given Id.
+      tags:
+        - orders
+      parameters:
+      - name: id
+        in: query
+        description: Enter order Id
+        required: true
+        type: integer
+        example: 123
+      responses:
+        '200':    
+          description: Data Deleted SuccessFully
+        '500':    
+          description: Internal Server error
+
+
+components:
+  schemas:
+    create:
+      type: object
+      properties:
+        order_id:
+          type: integer
+          example: 123
+        item_name:
+          type: string
+          example: Oppo
+        cost:
+          type: integer
+          example: 40000
+        order_date:
+          type: date
+          example: 2022/05/17
+        delivery_date:
+          type: date
+          example: 2022/05/18
+    update:
+      type: object
+      properties:
+        delivery_date:
+          type: date
+          example: 2022/05/17

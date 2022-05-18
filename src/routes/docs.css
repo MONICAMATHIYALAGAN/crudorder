@@ -1,0 +1,55 @@
+body {
+    background-color: white;
+}
+
+.swagger-ui .topbar {
+    background-color: white;
+}
+
+.swagger-ui .topbar a img {
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 155px;
+    height: 55px;
+    padding-left: 155px;
+}
+
+.swagger-ui .topbar a span {
+    color: rgb(206, 151, 151);
+}
+
+#swagger-ui section div.swagger-ui div div.information-container.wrapper {
+    background-color: #e0e0e0
+}
+
+#swagger-ui section div.swagger-ui div div.scheme-container {
+    background-color: #e0e0e0
+}
+
+#swagger-ui section div.swagger-ui div div:nth-child(3) section {
+    background-color: #e0e0e0
+}
+
+.swagger-ui .btn.execute {
+    border-color: #cd040b;
+}
+
+@keyframes swagger-ui-pulse {
+    0% {
+        color: #ffffff;
+        bacground: #cd040b;
+        -webkit-box-shadow: 0 0 0 0 #cd040bcc;
+        box-shadow: 0 0 0 0 #cd040bcc;
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 0 #cd040b00;
+        box-shadow: 0 0 0 0 #cd040b00;
+    }
+    100% {
+        color: #ffffff;
+        background: #cd040b;
+        -webkit-box-shadow: 0 0 0 0 #cd040b00;
+        box-shadow: 0 0 0 0 #cd040b00;
+    }
+}
